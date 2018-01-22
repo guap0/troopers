@@ -35,17 +35,20 @@ public class PlayerController : MonoBehaviour {
 
         // Rotation
         mousePos.z = 20f;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-        Vector3 relativeMousePos = mousePos - transform.position;
-        relativeMousePos.y = 0;
-        float radian = Mathf.Atan2(relativeMousePos.x, relativeMousePos.z);
+        if (Camera.current != null) {
+            mousePos = Camera.current.ScreenToWorldPoint(mousePos);
+            Vector3 relativeMousePos = mousePos - transform.position;
+            relativeMousePos.y = 0;
+            float radian = Mathf.Atan2(relativeMousePos.x, relativeMousePos.z);
 
-        float cameraRadius = Mathf.Min(3, relativeMousePos.magnitude / 2);
-        Vector3 targetPosition = transform.position;
-        Vector3 cameraOffset = new Vector3(Mathf.Sin(radian) * cameraRadius, 0, Mathf.Cos(radian) * cameraRadius);
-        Vector3 aimVector = new Vector3(targetPosition.x, targetPosition.y + 20, targetPosition.z);
-        aimVector += cameraOffset;
+            float cameraRadius = Mathf.Min(3, relativeMousePos.magnitude / 2);
+            Vector3 targetPosition = transform.position;
+            Vector3 cameraOffset = new Vector3(Mathf.Sin(radian) * cameraRadius, 0, Mathf.Cos(radian) * cameraRadius);
+            Vector3 aimVector = new Vector3(targetPosition.x, targetPosition.y + 20, targetPosition.z);
+            aimVector += cameraOffset;
 
-        unit.look(aimVector);
+            unit.look(aimVector);
+        }
+
     }
 }
