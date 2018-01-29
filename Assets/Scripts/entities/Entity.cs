@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Entity : MonoBehaviour
+public class Entity : NetworkBehaviour
 {
     public Camera cam;
     public GameObject graphics;
