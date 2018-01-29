@@ -10,6 +10,10 @@ public class Unit : Destructable
 
     public void move(Vector3 direction)
     {
+        if(isDead) {
+            return;
+        }
+
         velocity = direction * movespeed;
         // transform.position = transform.position + direction;
         //transform.Translate(direction);
@@ -17,6 +21,10 @@ public class Unit : Destructable
 
     public void look(Vector3 aimPosition)
     {
+        if(isDead) {
+            return;
+        }
+
         Vector3 direction = aimPosition - transform.position;
         float radian = Mathf.Atan2(direction.x, direction.z);
         float angle = radian * Mathf.Rad2Deg;
@@ -35,7 +43,12 @@ public class Unit : Destructable
     // Update is called once per frame
     void FixedUpdate ()
     {
-        if(velocity != Vector3.zero)
-        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        if(isDead) {
+            return;
+        }
+        if(velocity != Vector3.zero) {
+            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        }
+        
     }
 }

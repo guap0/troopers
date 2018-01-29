@@ -30,7 +30,7 @@ public class PlayerAction : NetworkBehaviour {
         if (Physics.Raycast(player.transform.position, player.aim, out hit, 100f, rayMask)) {
             print("we hit " + hit.collider.name);
             if(hit.collider.tag == PLAYER_TAG) {
-                CmdPlayerShot(hit.collider.name, 1);
+                CmdPlayerShot(hit.collider.name, 50);
             }
         }
     }
@@ -40,6 +40,6 @@ public class PlayerAction : NetworkBehaviour {
         Debug.Log(_playerID + "has been shot");
 
         Player _player = GameManager.GetPlayer(_playerID);
-        _player.TakeDamage(_damage);
+        _player.RpcTakeDamage(_damage);
     }
 }

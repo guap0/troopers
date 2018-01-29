@@ -18,12 +18,14 @@ public class PlayerScript : NetworkBehaviour {
             AssignRemoteLayer();
         }
         else {
-            // sceneCamera = Camera.main;
-            // if (sceneCamera != null) {
-            //     sceneCamera.gameObject.SetActive(false);
-            // }
-            Camera.main.gameObject.SetActive(false);
+            sceneCamera = Camera.main;
+            if (sceneCamera != null) {
+                sceneCamera.gameObject.SetActive(false);
+            }
         }
+
+        Player _player = GetComponent<Player>();
+        _player.Setup();
     }
 
     public override void OnStartClient() {
