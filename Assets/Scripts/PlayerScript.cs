@@ -7,7 +7,7 @@ public class PlayerScript : NetworkBehaviour {
     public Camera sceneCamera;
 
     [SerializeField]
-    string remoteLayerName = "RemoteLayer";
+    int remoteLayerName = 9;// "RemotePlayer";
 
     void Start()
     {
@@ -17,11 +17,23 @@ public class PlayerScript : NetworkBehaviour {
             AssignRemoteLayer();
         }
         else {
-            sceneCamera = Camera.main;
-            if (sceneCamera != null) {
-                sceneCamera.gameObject.SetActive(false);
-            }
+            // sceneCamera = Camera.main;
+            // if (sceneCamera != null) {
+            //     sceneCamera.gameObject.SetActive(false);
+            // }
+            Camera.main.gameObject.SetActive(false);
         }
+
+        RegisterPlayer();
+    }
+
+    void Update() {
+        print(Camera.current);
+    }
+
+    void RegisterPlayer() {
+        string _ID = "Player" + GetComponent<NetworkIdentity>().netId;
+        transform.name = _ID;
     }
 
     void DisableComponents() {
@@ -32,7 +44,7 @@ public class PlayerScript : NetworkBehaviour {
     }
 
     void AssignRemoteLayer() {
-        gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
+        gameObject.layer = remoteLayerName;
     }
 
     void OnDisable()

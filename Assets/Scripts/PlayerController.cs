@@ -28,10 +28,9 @@ public class PlayerController : MonoBehaviour {
 		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
 			//move left
 			xInput -= 1;
-		if (xInput != 0 || yInput != 0) {
-			Vector3 moveVector = new Vector3(xInput, 0, yInput);
-            unit.move(moveVector.normalized);
-		}
+		
+		Vector3 moveVector = new Vector3(xInput, 0, yInput);
+        unit.move(moveVector.normalized);
 
         // Rotation
         mousePos.z = 20f;
@@ -49,6 +48,5 @@ public class PlayerController : MonoBehaviour {
 
             unit.look(aimVector);
         }
-
     }
 }

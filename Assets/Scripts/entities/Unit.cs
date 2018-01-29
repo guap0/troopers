@@ -6,11 +6,13 @@ public class Unit : Destructable
     public float movespeed = 5;
     public Vector3 aim;
 
+    private Vector3 velocity;
+
     public void move(Vector3 direction)
     {
-        direction = direction * movespeed * Time.deltaTime;
+        velocity = direction * movespeed;
         // transform.position = transform.position + direction;
-        transform.Translate(direction);
+        //transform.Translate(direction);
     }
 
     public void look(Vector3 aimPosition)
@@ -28,5 +30,12 @@ public class Unit : Destructable
         if (cam != null) {
             cam.transform.position = aimPosition;
         }
+    }
+
+    // Update is called once per frame
+    void FixedUpdate ()
+    {
+        if(velocity != Vector3.zero)
+        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
     }
 }
