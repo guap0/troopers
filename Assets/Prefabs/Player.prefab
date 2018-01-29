@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 81730742098960572}
   m_Layer: 8
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4894992567594328}
   - component: {fileID: 135760318753627752}
   - component: {fileID: 54105768607401098}
-  - component: {fileID: 114980507035726176}
+  - component: {fileID: 114876785305832148}
   - component: {fileID: 114276395206979648}
   - component: {fileID: 114455574362560648}
   - component: {fileID: 114050824023636594}
@@ -265,12 +265,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   componentsToDisable:
   - {fileID: 114276395206979648}
-  - {fileID: 114980507035726176}
+  - {fileID: 114876785305832148}
   - {fileID: 20327104303537442}
   - {fileID: 81730742098960572}
-  - {fileID: 114363122559039300}
   sceneCamera: {fileID: 0}
-  remoteLayerName: RemoteLayer
+  remoteLayerName: 9
 --- !u!114 &114215685749549398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -284,12 +283,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 4516264647004612}
   m_ChildIndex: 0
-  m_SendInterval: 0.1
+  m_SendInterval: 0.2
   m_SyncRotationAxis: 2
   m_RotationSyncCompression: 0
   m_MovementThreshold: 0
   m_InterpolateRotation: 0.5
-  m_InterpolateMovement: 0.1
+  m_InterpolateMovement: 0
 --- !u!114 &114276395206979648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,7 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967039
 --- !u!114 &114455574362560648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -359,17 +358,17 @@ MonoBehaviour:
   m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.11111111
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
   m_SyncRotationAxis: 0
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
   m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
+  m_VelocityThreshold: 0
+  m_SnapThreshold: 100
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
---- !u!114 &114980507035726176
+--- !u!114 &114876785305832148
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -377,7 +376,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1453082511560564}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8f6f9de8ba774bd1ae8b2c3d0a28482, type: 3}
+  m_Script: {fileID: 11500000, guid: 688c3808636b637498e7f7d21a881945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 20327104303537442}
